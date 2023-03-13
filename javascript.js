@@ -37,7 +37,7 @@ function createGrid() {
   const squares = document.querySelectorAll("div .square");
   squares.forEach((item) => {
     item.addEventListener("mouseover", () => {
-      item.style.backgroundColor = "black";
+      item.style.backgroundColor = `rgb(${getRandomInt()}, ${getRandomInt()}, ${getRandomInt()})`;
     });
     // item.addEventListener("mouseleave", () => {
     //   item.style.backgroundColor = "rgb(3, 141, 123)";
@@ -50,9 +50,14 @@ function createGrid() {
 const squares = document.querySelectorAll("div .square");
 squares.forEach((item) => {
   item.addEventListener("mouseover", () => {
-    item.style.backgroundColor = "black";
+    item.style.backgroundColor = `rgb(${getRandomInt()}, ${getRandomInt()}, ${getRandomInt()})`;
   });
   // item.addEventListener("mouseleave", () => {
   //   item.style.backgroundColor = "rgb(3, 141, 123)";
   // });
 });
+
+// returns a random number between 0 and 255
+function getRandomInt() {
+  return Math.floor(Math.random() * 255);
+}
