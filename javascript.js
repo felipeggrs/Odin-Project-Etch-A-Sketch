@@ -1,6 +1,6 @@
 // create button and put it on top of the grid
 const button = document.createElement("button");
-button.textContent = "Click me";
+button.textContent = "Change Size";
 mainContainer.insertBefore(button, mainContainer.children[0]);
 button.addEventListener("click", createGrid);
 
@@ -36,28 +36,33 @@ function createGrid() {
   // hover effect for the new grid
   const squares = document.querySelectorAll("div .square");
   squares.forEach((item) => {
+    let r = getRandomInt();
+    let g = getRandomInt();
+    let b = getRandomInt();
     item.addEventListener("mouseover", () => {
-      item.style.backgroundColor = `rgb(${getRandomInt()}, ${getRandomInt()}, ${getRandomInt()})`;
+      r *= 0.7;
+      g *= 0.7;
+      b *= 0.7;
+      item.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     });
-    // item.addEventListener("mouseleave", () => {
-    //   item.style.backgroundColor = "rgb(3, 141, 123)";
-    // });
   });
-  }
-}
+}}
 
 // hover effect for the default grid
 const squares = document.querySelectorAll("div .square");
 squares.forEach((item) => {
-  item.addEventListener("mouseover", () => {
-    item.style.backgroundColor = `rgb(${getRandomInt()}, ${getRandomInt()}, ${getRandomInt()})`;
-  });
-  // item.addEventListener("mouseleave", () => {
-  //   item.style.backgroundColor = "rgb(3, 141, 123)";
-  // });
+  let r = getRandomInt();
+  let g = getRandomInt();
+  let b = getRandomInt();
+    item.addEventListener("mouseover", () => {
+      r *= 0.7;
+      g *= 0.7;
+      b *= 0.7;
+        item.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    });
 });
 
-// returns a random number between 0 and 255
+// returns a random number between 0 and 364, meaning that the maximum rgb value will be around 254, after we do 364 * 0.7
 function getRandomInt() {
-  return Math.floor(Math.random() * 255);
+  return Math.floor(Math.random() * 364);
 }
